@@ -1,0 +1,434 @@
+/*
+ * Herramientas del vendedor, Postulaciones, reseñas e informe de administración.
+ * Todas las clases llevan el prefijo "sl-" para no chocar con otros archivos CSS.
+ */
+
+/* ---------- Etiquetas de estado (Chip con tono en la app) ---------- */
+.sl-tag {
+  display: inline-flex;
+  align-items: center;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  line-height: 1.3;
+  background: var(--surface);
+  color: var(--text-2);
+  white-space: nowrap;
+}
+
+.sl-tag--primary { background: #FBE3DC; color: var(--primary-dark); }
+.sl-tag--success { background: #E8F0D9; color: var(--success); }
+.sl-tag--warning { background: #FDF0D8; color: #A86A00; }
+.sl-tag--error { background: #F6DCDA; color: var(--error); }
+
+.sl-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+/* ---------- Avisos (Banner con icono) ---------- */
+.sl-banner {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 12px 14px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  color: var(--text-2);
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+
+.sl-banner--success { background: #E8F0D9; color: var(--success); font-weight: 600; }
+.sl-banner--error { background: #F6DCDA; color: var(--error); }
+
+.sl-banner__icon {
+  flex-shrink: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+/* ---------- Tarjetas ---------- */
+.sl-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-width: 0;
+}
+
+.sl-card__main {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  width: 100%;
+  text-align: left;
+  border-radius: var(--radius-sm);
+}
+
+.sl-card__main:hover .name {
+  color: var(--primary);
+}
+
+.sl-card__info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.sl-thumb {
+  flex-shrink: 0;
+  width: 76px;
+  height: 76px;
+  border-radius: var(--radius-sm);
+  object-fit: cover;
+  background: var(--surface-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+}
+
+.sl-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sl-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.sl-chevron {
+  align-self: center;
+  font-size: 22px;
+  color: var(--text-2);
+}
+
+.sl-offer {
+  font-weight: 700;
+  color: var(--primary);
+}
+
+/* Acciones del mismo tamaño (Editar / Compartir / Eliminar) */
+.sl-actions {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: 8px;
+}
+
+.sl-actions > * {
+  min-width: 0;
+}
+
+.sl-actions .btn {
+  width: 100%;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+/* Botón suave de éxito (Marcar como vendido / regalado) */
+.sl-btn-soft-success {
+  background: #E8F0D9;
+  color: var(--success);
+}
+
+.sl-completed-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 12px;
+}
+
+.sl-completed-row .link {
+  min-height: 36px;
+  font-size: 14px;
+}
+
+.sl-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.sl-empty-emoji {
+  font-size: 40px;
+  margin-bottom: 8px;
+}
+
+.sl-empty-title {
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.sl-footnote {
+  font-size: 12px;
+  color: var(--text-2);
+  text-align: center;
+  margin-top: 10px;
+}
+
+.sl-counter {
+  display: block;
+  text-align: right;
+  font-size: 12px;
+  color: var(--text-2);
+  margin-top: 2px;
+}
+
+/* ---------- Informe de administración ---------- */
+.sl-segmented {
+  display: flex;
+  padding: 4px;
+  gap: 4px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  margin-bottom: 12px;
+}
+
+.sl-segmented button {
+  flex: 1;
+  min-height: 38px;
+  border-radius: var(--radius-sm);
+  font-weight: 600;
+  font-size: 14px;
+  color: var(--text-2);
+}
+
+.sl-segmented button[aria-pressed='true'] {
+  background: var(--white);
+  color: var(--primary);
+  box-shadow: var(--shadow);
+}
+
+.sl-tiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.sl-tile {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 12px;
+  box-shadow: var(--shadow);
+  min-width: 0;
+}
+
+.sl-tile__icon { font-size: 18px; }
+
+.sl-tile__value {
+  margin-top: 4px;
+  font-size: 30px;
+  font-weight: 800;
+  line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-tile__label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+}
+
+.sl-tile__caption {
+  margin-top: 4px;
+  font-size: 12px;
+  color: var(--text-2);
+  opacity: 0.85;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sl-note {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-bottom: 18px;
+}
+
+.sl-group-title {
+  margin-top: 28px;
+}
+
+.sl-section-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 18px 0 8px;
+}
+
+.sl-section-head .section-title {
+  margin-bottom: 0;
+  font-size: 16px;
+}
+
+.sl-charts {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0 16px;
+}
+
+@media (min-width: 900px) {
+  .sl-charts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.sl-table-wrap {
+  overflow-x: auto;
+  background: var(--white);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.sl-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+  font-variant-numeric: tabular-nums;
+}
+
+.sl-table th,
+.sl-table td {
+  padding: 8px 10px;
+  text-align: right;
+  border-bottom: 1px solid var(--surface-2);
+  white-space: nowrap;
+}
+
+.sl-table th:first-child,
+.sl-table td:first-child {
+  text-align: left;
+}
+
+.sl-table th {
+  background: var(--surface);
+  color: var(--text-2);
+  font-weight: 700;
+  font-size: 13px;
+}
+
+.sl-table tr:last-child td {
+  border-bottom: none;
+}
+
+.sl-zero {
+  color: var(--surface-2);
+}
+
+/* ---------- Gráfica de barras ---------- */
+.sl-chart__readout {
+  margin-bottom: 12px;
+}
+
+.sl-chart__value {
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.sl-chart__label {
+  font-size: 13px;
+  color: var(--text-2);
+}
+
+.sl-chart__plot {
+  display: flex;
+}
+
+.sl-chart__y {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 18px;
+  margin-right: 8px;
+}
+
+.sl-chart__axis-text {
+  font-size: 11px;
+  color: var(--text-2);
+  line-height: 1;
+}
+
+.sl-chart__area {
+  flex: 1;
+  min-width: 0;
+}
+
+.sl-chart__bars {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.sl-chart__grid {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: var(--surface-2);
+  pointer-events: none;
+}
+
+.sl-chart__slot {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 0 1px;
+}
+
+.sl-chart__bar {
+  width: 100%;
+  max-width: 28px;
+  border-radius: 4px 4px 0 0;
+  background: var(--primary);
+  transition: opacity 0.15s;
+}
+
+.sl-chart__marker {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 1px;
+  background: var(--text-2);
+  opacity: 0.35;
+  pointer-events: none;
+}
+
+.sl-chart__baseline {
+  height: 1px;
+  background: var(--surface-2);
+}
+
+.sl-chart__x {
+  position: relative;
+  height: 18px;
+  margin-top: 4px;
+}
+
+.sl-chart__x span {
+  position: absolute;
+  top: 0;
+  white-space: nowrap;
+}
